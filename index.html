@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.0/c3.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.0/c3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>  
+
+
+Test page
+
+<div id="chart-1"></div>
+<hr>
+<div id="chart-2"></div>
+
+<script>
+
+// C3 Chart bauen
+
+var chart_1 = c3.generate({
+  bindto : '#chart-1',
+  data : {
+    columns : [
+      ['data1', 100, 20, 30],
+      ['data2', 3,2,1]
+    ]
+  }
+});
+
+
+// gauge chart
+
+var gauge_data = { "Wir" : 75, "Benchmark" : 10}
+
+var chart_2 = c3.generate(
+{
+  bindto: "#chart-2",
+  data : {
+    json : gauge_data,
+    type : "gauge",
+    labels : false
+  },
+  gauge: {
+    min : 0,
+    max : 100,
+    units : "Zustimmung",
+    expand: true,
+    width: 50,
+    label: {
+      format: function (value, ratio) {
+        return value;
+      }
+    }
+  },
+
+})
+
+
+</script>
+</html>
+
+
+
+
+
+
